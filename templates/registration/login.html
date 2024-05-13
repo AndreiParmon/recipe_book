@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}Вход в аккаунт{% endblock %}
+
+{% block content %}
+<p align="center" class="h1">Авторизация пользователя</p>
+<br>
+<form method="post" class="mt-4" align="center">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Войти</button>
+</form>
+{% endblock %}

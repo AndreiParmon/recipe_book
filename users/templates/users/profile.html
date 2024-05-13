@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="card border-0" style="background-color:#e6e6e6;">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-2">
+                    {% if user.profile.avatar %}
+                        <img src="{{ user.profile.avatar.url }}" class="card-img-top img-fluid">
+                    {% else %}
+                        <img src="{% static 'img/default.png' %}" class="card-img-top img-fluid">
+                    {% endif %}
+                </div>
+                <div class="col-md-9">
+                    <div class="card-text">
+                        <ul>
+                            <li>Никнейм: {{ request.user.first_name }}</li>
+                            <li>Имя пользователя: {{ request.user.username }}</li>
+                            <li>Заходил: {{ request.user.last_login }}</li>
+                            <li>Email: {{ request.user.email }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
